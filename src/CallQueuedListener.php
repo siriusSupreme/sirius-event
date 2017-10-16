@@ -2,7 +2,7 @@
 
 namespace Sirius\Event;
 
-use Illuminate\Container\Container;
+use Sirius\Container\Container;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -71,7 +71,7 @@ class CallQueuedListener implements ShouldQueue
     /**
      * Handle the queued job.
      *
-     * @param  \Illuminate\Container\Container  $container
+     * @param  \Sirius\Container\Container  $container
      * @return void
      */
     public function handle(Container $container)
