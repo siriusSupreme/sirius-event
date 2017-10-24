@@ -3,9 +3,9 @@
 namespace Sirius\Event;
 
 use Sirius\Container\Container;
-use Sirius\Contracts\Queue\Job;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Sirius\Queue\Contracts\Job;
+use Sirius\Queue\Traits\InteractsWithQueue;
+use Sirius\Queue\Contracts\ShouldQueue;
 
 class CallQueuedListener implements ShouldQueue
 {
@@ -59,7 +59,7 @@ class CallQueuedListener implements ShouldQueue
      * @param  string  $class
      * @param  string  $method
      * @param  array  $data
-     * @return void
+     *
      */
     public function __construct($class, $method, $data)
     {
@@ -91,8 +91,9 @@ class CallQueuedListener implements ShouldQueue
     /**
      * Set the job instance of the given class if necessary.
      *
-     * @param  \Illuminate\Contracts\Queue\Job  $job
+     * @param  \Sirius\Queue\Contracts\Job  $job
      * @param  mixed  $instance
+     *
      * @return mixed
      */
     protected function setJobInstanceIfNecessary(Job $job, $instance)

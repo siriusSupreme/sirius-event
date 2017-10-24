@@ -7,18 +7,19 @@ use ReflectionClass;
 use Sirius\Support\Arr;
 use Sirius\Support\Str;
 use Sirius\Container\Container;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Sirius\Queue\Contracts\ShouldQueue;
+use Sirius\Broadcast\Contracts\ShouldBroadcast;
 use Sirius\Event\Contracts\Dispatcher as DispatcherContract;
-use Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
-use Sirius\Contracts\Container\Container as ContainerContract;
+use Sirius\Broadcast\Contracts\Factory as BroadcastFactory;
+use Sirius\Container\Contracts\Container as ContainerContract;
+use function Sirius\Support\tap;
 
 class Dispatcher implements DispatcherContract
 {
     /**
      * The IoC container instance.
      *
-     * @var \Sirius\Contracts\Container\Container
+     * @var \Sirius\Container\Contracts\Container
      */
     protected $container;
 
@@ -46,7 +47,7 @@ class Dispatcher implements DispatcherContract
     /**
      * Create a new event dispatcher instance.
      *
-     * @param  \Illuminate\Contracts\Container\Container|null  $container
+     * @param  \Sirius\Container\Contracts\Container|null  $container
      * @return void
      */
     public function __construct(ContainerContract $container = null)
@@ -263,7 +264,8 @@ class Dispatcher implements DispatcherContract
     /**
      * Broadcast the given event class.
      *
-     * @param  \Illuminate\Contracts\Broadcasting\ShouldBroadcast  $event
+     * @param  \Sirius\Broadcast\Contracts\ShouldBroadcast  $event
+     *
      * @return void
      */
     protected function broadcastEvent($event)
