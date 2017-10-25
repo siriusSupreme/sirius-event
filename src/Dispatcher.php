@@ -48,7 +48,7 @@ class Dispatcher implements DispatcherContract
      * Create a new event dispatcher instance.
      *
      * @param  \Sirius\Container\Contracts\Container|null  $container
-     * @return void
+     *
      */
     public function __construct(ContainerContract $container = null)
     {

@@ -6,6 +6,7 @@ use Sirius\Container\Container;
 use Sirius\Queue\Contracts\Job;
 use Sirius\Queue\Traits\InteractsWithQueue;
 use Sirius\Queue\Contracts\ShouldQueue;
+use function Sirius\Support\class_uses_recursive;
 
 class CallQueuedListener implements ShouldQueue
 {
