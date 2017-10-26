@@ -3,9 +3,9 @@
 namespace Sirius\Event;
 
 use Sirius\Container\Container;
-use Sirius\Queue\Contracts\Job;
-use Sirius\Queue\Traits\InteractsWithQueue;
+use Sirius\Queue\Jobs\Job;
 use Sirius\Queue\Contracts\ShouldQueue;
+use Sirius\Queue\Traits\InteractsWithQueue;
 use function Sirius\Support\class_uses_recursive;
 
 class CallQueuedListener implements ShouldQueue
@@ -92,7 +92,7 @@ class CallQueuedListener implements ShouldQueue
     /**
      * Set the job instance of the given class if necessary.
      *
-     * @param  \Sirius\Queue\Contracts\Job  $job
+     * @param  \Sirius\Queue\Jobs\Job  $job
      * @param  mixed  $instance
      *
      * @return mixed

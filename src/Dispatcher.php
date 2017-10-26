@@ -4,14 +4,14 @@ namespace Sirius\Event;
 
 use Exception;
 use ReflectionClass;
+use Sirius\Broadcast\Contracts\Factory as BroadcastFactory;
+use Sirius\Broadcast\Contracts\ShouldBroadcast;
+use Sirius\Container\Container;
+use Sirius\Container\Contracts\Container as ContainerContract;
+use Sirius\Event\Contracts\Dispatcher as DispatcherContract;
+use Sirius\Queue\Contracts\ShouldQueue;
 use Sirius\Support\Arr;
 use Sirius\Support\Str;
-use Sirius\Container\Container;
-use Sirius\Queue\Contracts\ShouldQueue;
-use Sirius\Broadcast\Contracts\ShouldBroadcast;
-use Sirius\Event\Contracts\Dispatcher as DispatcherContract;
-use Sirius\Broadcast\Contracts\Factory as BroadcastFactory;
-use Sirius\Container\Contracts\Container as ContainerContract;
 use function Sirius\Support\tap;
 
 class Dispatcher implements DispatcherContract
