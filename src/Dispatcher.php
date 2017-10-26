@@ -7,7 +7,6 @@ use ReflectionClass;
 use Sirius\Broadcast\Contracts\Factory as BroadcastFactory;
 use Sirius\Broadcast\Contracts\ShouldBroadcast;
 use Sirius\Container\Container;
-use Sirius\Container\Contracts\Container as ContainerContract;
 use Sirius\Event\Contracts\Dispatcher as DispatcherContract;
 use Sirius\Queue\Contracts\ShouldQueue;
 use Sirius\Support\Arr;
@@ -19,7 +18,7 @@ class Dispatcher implements DispatcherContract
     /**
      * The IoC container instance.
      *
-     * @var \Sirius\Container\Contracts\Container
+     * @var \Sirius\Container\Container
      */
     protected $container;
 
@@ -47,10 +46,10 @@ class Dispatcher implements DispatcherContract
     /**
      * Create a new event dispatcher instance.
      *
-     * @param  \Sirius\Container\Contracts\Container|null  $container
+     * @param  \Sirius\Container\Container|null  $container
      *
      */
-    public function __construct(ContainerContract $container = null)
+    public function __construct(Container $container = null)
     {
         $this->container = $container ?: new Container;
     }
@@ -543,7 +542,7 @@ class Dispatcher implements DispatcherContract
     /**
      * Get the queue implementation from the resolver.
      *
-     * @return \Sirius\Queue\Contracts\Queue
+     * @return \Sirius\Queue\Queues\Queue
      */
     protected function resolveQueue()
     {
