@@ -1,1 +1,1 @@
-# thinkphp-event
+# sirius-event
